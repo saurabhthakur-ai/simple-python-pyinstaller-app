@@ -55,9 +55,8 @@ pipeline {
             steps {
 
                 bat '"C:\\Users\\srbht\\AppData\\Roaming\\uv\\python\\cpython-3.11.15-windows-x86_64-none\\python.exe" --version'
-
-                bat '"C:\\Users\\srbht\\AppData\\Roaming\\uv\\python\\cpython-3.11.15-windows-x86_64-none\\python.exe" -m py_compile sources\\add2vals.py sources\\calc.py'
-
+                //bat '"C:\\Users\\srbht\\AppData\\Roaming\\uv\\python\\cpython-3.11.15-windows-x86_64-none\\python.exe" -m py_compile sources\\add2vals.py sources\\calc.py'
+                bat '"C:\\Users\\srbht\\AppData\\Roaming\\uv\\python\\cpython-3.11.15-windows-x86_64-none\\python.exe" -m py_compile sources\\*.py'
                 stash(
                     name: 'compiled-results',
                     includes: 'sources/*.py*'
