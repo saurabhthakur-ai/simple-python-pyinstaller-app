@@ -1,10 +1,24 @@
+// pipeline {
+//     agent any 
+//     stages {
+//         stage('Build') { 
+//             steps {
+//                 bat 'python -m py_compile sources/add2vals.py sources/calc.py' 
+//                 stash(name: 'compiled-results', includes: 'sources/*.py*') 
+//             }
+//         }
+//     }
+// }
+
+
+// This is testing the pipeline with a different approach to the build stage. The previous approach was using a Linux shell command, while this one is using Windows batch commands. The 'where python' command checks if Python is installed and available in the system's PATH, and 'python --version' retrieves the installed Python version.
 pipeline {
-    agent any 
+    agent any
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                bat 'python -m py_compile sources/add2vals.py sources/calc.py' 
-                stash(name: 'compiled-results', includes: 'sources/*.py*') 
+                bat 'where python'
+                bat 'python --version'
             }
         }
     }
