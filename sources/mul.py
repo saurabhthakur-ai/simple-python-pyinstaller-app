@@ -1,7 +1,7 @@
 
 
 
-def mul(a, b)
+def mul(a, b):
     """
     Multiplies two numbers.
 
