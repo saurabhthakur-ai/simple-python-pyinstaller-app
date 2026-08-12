@@ -27,19 +27,34 @@
 
 
 // stage 2 trial for jenking file
+// pipeline {
+//     agent any
+
+//     stages {
+
+//         stage('Build') {
+//             steps {
+//                 bat '"C:\\Users\\srbht\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m py_compile sources\\add2vals.py sources\\calc.py'
+
+//                 stash(
+//                     name: 'compiled-results',
+//                     includes: 'sources/*.py*'
+//                 )
+//             }
+//         }
+//     }
+// }
+
+/// this is chekin where is python and python version
 pipeline {
     agent any
 
     stages {
-
         stage('Build') {
             steps {
-                bat '"C:\\Users\\srbht\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m py_compile sources\\add2vals.py sources\\calc.py'
+                bat '"C:\\Users\\srbht\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" --version'
 
-                stash(
-                    name: 'compiled-results',
-                    includes: 'sources/*.py*'
-                )
+                bat '"C:\\Users\\srbht\\AppData\\Local\\Programs\\Python\\Python310\\python.exe" -m py_compile sources\\add2vals.py sources\\calc.py'
             }
         }
     }
